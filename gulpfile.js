@@ -7,14 +7,20 @@ var $ = require('gulp-load-plugins')({
 	replaceString: /\bgulp[\-.]/
 });
 
-gulp.task('work',['browser-sync', 'sass']);
+//Se encarga de "refrescar el proyecto completo en el navegador"
+gulp.task('work',['browser-sync', 'css-reload']);
 
 //compilar sass
 gulp.task('sass', () =>
-    gulp.src('./scss/*.scss')
+    gulp.src('scss/*.scss')
     //se pasa sass como función
         .pipe(sass())
-        .pipe(gulp.dest('./css'))
+        .pipe(gulp.dest('css/'))
+);
+
+//Tarea
+gulp.task('css-reload', () =>
+    gulp.watch('scss/*.scss', ['sass'])
 );
 
 // Server

@@ -1,6 +1,6 @@
 body {
-  background: red; }
+  background: yellow; }
   body p {
-    color: red;
+    color: yellow;
     display: flex;
     flex-direction: column; }
